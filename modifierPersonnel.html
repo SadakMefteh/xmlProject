@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<!--
+	Couleur du théme: #2BABAB
+	Couleur du thème mais plus éclérée: #6BEBEB
+	Couleur du thème mais plus sombre: #007B7B
+	-->
+	<head>
+		<meta charset="cp1556">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<title>ORGANISINI</title>
+	</head>
+	<body class="card overflow-hidden">
+		<div class="row g-0">
+			<div class="col-md d-none d-md-block overflow-hidden" style="height:100vh;position:relative;">
+				<!--
+				*******C'est l'image de l'événement*******
+				-->
+				<svg class="bd-placeholder-img bd-placeholder-img-lg img-fluid" width="50vw" height="100vh" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: ORGANISINI" preserveAspectRatio="xMidYMid slice" focusable="false" style="position:absolute;top:0;bottom:0;right:0;">
+					<title>ORGANISINI</title>
+					<rect width="100%" height="100%" fill="#2BABAB"></rect>
+					<text x="50%" y="50%" fill="#dee2e6" dy=".3em">ORGANISINI</text>
+				</svg>
+			</div>
+			<div class="col-sm form-signin w-100 m-auto overflow-auto" style="height:100vh;">
+				<form class="from-signin w-100 m-auto">
+					<!--
+					*******C'est le champ de l'email (login)*******
+					-->
+					<h1 class="h3 mb-3 fw-normal text-center">Modifiez les données d'employé</h1>
+					<label for="email">Email</label>
+					<div class="input-group mb-3">
+						<span class="input-group-text" id="basic-addon1" style="border-top-right-radius:0; border-bottom-right-radius:0;">@</span>
+						<input id="email" name="email" type="email" class="form-control" placeholder="exemple@domaine.com" aria-label="Adresse Email" aria-describedby="basic-addon1" required default="foulen@gmail.com">
+					</div>
+					<small class="form-text text-muted">Saisissez l'Email de l'emplyé ici.</small><!-- Si l'email est érroné alors on ajoute la classe "is-invalid" à l'élément "input" précédent et au lieu de la balise précédente, on met:
+					<div class="invalid-feedback">Saisissez correctement l'Email de l'employé.</div>
+					-->
+					<!--
+					*******C'est le champ du mot de passe*******
+					-->
+					<div class="form-label-group">
+						<label for="motDePasse">Mot de passe</label>
+						<input type="text" id="motDePasse" class="form-control" placeholder="Mot de passe" required name="motDePasse" default="*********">
+						<small class="form-text text-muted">Saisissez le mot de passe de l'employé ici.</small><!-- Si le mot de passe est érroné alors on ajoute la classe "is-invalid" à l'élément "input" précédent et au lieu de la balise précédente, on met:
+					<div class="invalid-feedback">Saisissez correctement le mot de passe de l'employé.</div>
+					-->
+					</div>
+					<div class="form-label-group">
+						<label for="role">Rôle</label>
+						<input type="text" id="role" class="form-control" placeholder="Rôle" required name="role" default="serveur">
+						<small class="form-text text-muted">Saisissez le travail de l'employé.</small><!-- Si le champ est vide "is-invalid" à l'élément "input" précédent et au lieu de la balise précédente, on met:
+					<div class="invalid-feedback">Le champ rôle ne doit pas être vide.</div>
+					-->
+					</div>
+					<!--
+					*******Ce sont les boutons*******
+					-->
+					<div class="container text-center">
+						<div class="row">
+							<div class="col-md">
+								<button class="btn btn-lg btn-success btn-block" type="submit" name="modifierPersonnel" style="margin:5px;" onclick="succe(document.getElementById('email').textContent, document.getElementById('motDePasse').textContent)">Modifier Employé</button>
+							</div>
+							<div class="col-md">
+								<button class="btn btn-lg btn-secondary btn-block" type="reset" name="annuler" onclick="history.back()" style="margin:5px">Annuler</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function succes(email, motDePasse){
+				var champEmail= document.getElementById("champEmail");
+				champEmail.textContent=email;
+				var champMotDePasse= document.getElementById("champMotDePasse");
+				champMotDePasse.textContent=motDePasse;
+				var popUpSucces = document.getElementById("popUpSucces");
+				popUpSucces.style.zIndex="initial";
+				var popUpSuccesChild = document.getElementById("popUpSuccesChild");
+				popUpSuccesChild.style.display = "initial";
+			}
+			function ok(){
+				var popUpSuccesChild = document.getElementById("popUpSuccesChild");
+				popUpSuccesChild.style.display="none";
+				var popUpSucces = document.getElementById("popUpSucces");
+				popUpSucces.style.zIndex="-1";
+			}
+		</script>
+		<div class="modal modal-sheet d-block py-5" id="popUpSucces" style="z-index:-1;">
+			<div class="modal-dialog" id="popUpSuccesChild" style="display:none;">
+				<div class="modal-content rounded-4 shadow px-3" style="max-width:48vw;">
+					<h1 class="modal-title fs-5 text-center">Succès</h1>
+					<div class="modal-body py-0">
+						<p>Email d'employé: <div id="champEmail"></div></p>
+						<p>Mot de passe employé: <div id="champMotDePasse"></div></p>
+						<p>Les modifications sur les données de l'employé sont enregistrées avec succès.</p>
+					</div>
+					<div class="modal-footer flex-column border-top-0">
+						<button type="button" class="btn btn-lg btn-info w-100 mx-0 mb-2" onclick="ok()">Ok</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
+</html>

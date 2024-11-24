@@ -1,0 +1,3 @@
+Remarques:
+
+	1) La redirection de la page "authentifier.php" vers "inscrire.php" n'est pas simple. L'utilisateur peut s'inscrire comme un organisateur ou participant. S'il a accédé à "authentifier.php" après avoir séléctionner un événement dans lequel il va s'inscrire donc il doit étre diriger vers "inscrire.php" qui comprend les champs du participant. Et s'il a accédé à "authentifier.php" à travers un lien qui permet d'organiser un événement par exemple, donc il va étre diriger vers "inscrire.php qui contient les champs de l'organisateur. Ceci est possible en utilisant la méthode POST qui contient une variable dans laquelle ont trouve le type d'inscription (c'est à dire les champs) que nous devons présenter lors de l'affichage de la page "inscription.php".
