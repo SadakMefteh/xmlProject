@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<!--
-	Couleur du théme: #2BABAB
-	Couleur du thème mais plus éclérée: #6BEBEB
-	Couleur du thème mais plus sombre: #007B7B
+	Couleur du thÃ©me: #2BABAB
+	Couleur du thÃ¨me mais plus Ã©clÃ©rÃ©e: #6BEBEB
+	Couleur du thÃ¨me mais plus sombre: #007B7B
 	-->
 	<head>
 		<meta charset="utf-8">
@@ -15,7 +15,7 @@
 		<div class="row g-0">
 			<div class="col-md d-none d-md-block overflow-hidden" style="height:100vh;position:relative;">
 				<!--
-				*******C'est l'image de l'événement*******
+				*******C'est l'image de l'Ã©vÃ©nement*******
 				-->
 				<svg class="bd-placeholder-img bd-placeholder-img-lg img-fluid" width="50vw" height="100vh" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: ORGANISINI" preserveAspectRatio="xMidYMid slice" focusable="false" style="position:absolute;top:0;bottom:0;right:0;">
 					<title>ORGANISINI</title>
@@ -24,28 +24,24 @@
 				</svg>
 			</div>
 			<div class="col-sm form-signin w-100 m-auto overflow-auto" style="height:100vh;">
-				<form class="from-signin w-100 m-auto">
+				<form class="from-signin w-100 m-auto needs-validation" novalidate>
 					<!--
 					*******C'est le champ de l'email (login)*******
 					-->
 					<h1 class="h3 mb-3 fw-normal text-center">Authentifiez vous</h1>
-					<label for="email">Email</label>
+					<label for="email" class="form-label">Email</label>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1" style="border-top-right-radius:0; border-bottom-right-radius:0;">@</span>
 						<input id="email" name="email" type="email" class="form-control" placeholder="exemple@domaine.com" aria-label="Adresse Email" aria-describedby="basic-addon1" required>
+						<div class="invalid-feedback">Saisissez correctement votre Email.</div>
 					</div>
-					<small class="form-text text-muted">Saisissez votre Email ici.</small><!-- Si l'email est érroné alors on ajoute la classe "is-invalid" à l'élément "input" précédent et au lieu de la balise précédente, on met:
-					<div class="invalid-feedback">Saisissez correctement votre Email.</div>
-					-->
 					<!--
 					*******C'est le champ du mot de passe*******
 					-->
-					<div class="form-label-group">
-						<label for="motDePasse">Mot de passe</label>
-						<input type="password" id="motDePasse" class="form-control" placeholder="Mot de passe" required name="motDePasse">
-						<small class="form-text text-muted">Saisissez votre mot de passe ici.</small><!-- Si le mot de passe est érroné alors on ajoute la classe "is-invalid" à l'élément "input" précédent et au lieu de la balise précédente, on met:
-					<div class="invalid-feedback">Saisissez correctement votre mot de passe.</div>
-					-->
+					<div class="form-label-group mb-3">
+						<label for="motDePasse" class="form-label">Mot de passe</label>
+						<input type="password" id="motDePasse" class="form-control" placeholder="Mot de passe" name="motDePasse" required>
+						<div class="invalid-feedback">Saisissez correctement votre mot de passe.</div>
 					</div>
 					<!--
 					Un lien vers "inscrire.html"
@@ -70,5 +66,28 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+		<script>
+			// Enable form validation
+			(function () {
+				"use strict";
+				// Fetch all the forms we want to apply custom Bootstrap validation styles to
+				var forms = document.querySelectorAll(".needs-validation");
+				// Loop over them and prevent submission
+				Array.prototype.slice.call(forms).forEach(function (form) {
+					form.addEventListener(
+					"submit",
+					function (event) {
+						if (!form.checkValidity()) {
+							event.preventDefault();
+							event.stopPropagation();
+						}
+						form.classList.add("was-validated");
+					},
+					false
+					);
+				});
+			})();
+		</script>
 	</body>
 </html>
