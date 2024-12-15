@@ -1,0 +1,84 @@
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .event-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+
+        .event-card img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .event-card-body {
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
+
+        .event-card-body h5 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #3b5998;
+        }
+
+        .event-card-body p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .event-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .ratings {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .rating-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rating-btn:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .rating-btn.selected {
+            background: #28a745;
+            color: #fff;
+        }
+    

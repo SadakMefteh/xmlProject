@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .search-bar {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <div class="d-flex align-items-center">
+                    <span class="text-uppercase" style="font-size: 1.5rem; font-weight: bold; color: #4a4a4a;">BIENVENUE</span>
+                    <span class="text-uppercase" style="font-size: 1.5rem; font-weight: bold; color: #3b5998; margin-left: 5px;">NOM ADMIN !</span>
+                </div>
+                <div>
+                    <a href="homePage.html" class="btn btn-danger ms-3" style="padding: 10px 20px; font-size: 0.9rem; font-weight: bold;">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </div>
+                
+
+            </div>
+        </div><br><br>
+        <div class="d-flex align-items-center">
+            <span class="text-uppercase" style="font-size: 1.5rem; font-weight: bold; color: #4a4a4a;">VOULEZ VOUS</span>
+            <span class="text-uppercase" style="font-size: 1.5rem; font-weight: bold; color: #3b5998; margin-left: 5px;">FAIRE UNE RECLAMATION ?</span>
+        </div><br><br>
+
+        <!-- Barre de recherche -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" class="form-control" placeholder="Rechercher par groupe ou rendement..." onkeyup="filterTable()">
+        </div>
+
+        <!-- Tableau des groupes ressources matérielles -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom De La Ressource</th>
+                    <th>Rendement</th>
+                    <th>Email Responsable</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="responsableTable">
+                <tr>
+                    <td>1</td>
+                    <td>Groupe Personnel</td>
+                    <td>85%</td>
+                    <td>responsableA@mail.com</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#emailModal" onclick="prepareEmail('responsableA@mail.com')">
+                            <i class="fas fa-envelope"></i> Envoyer un mail
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Groupe Matériel</td>
+                    <td>90%</td>
+                    <td>responsableB@mail.com</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#emailModal" onclick="prepareEmail('responsableB@mail.com')">
+                            <i class="fas fa-envelope"></i> Envoyer un mail
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Local</td>
+                    <td>90%</td>
+                    <td>responsableB@mail.com</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#emailModal" onclick="prepareEmail('responsableB@mail.com')">
+                            <i class="fas fa-envelope"></i> Envoyer un mail
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modale pour envoyer un email -->
+    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="emailModalLabel">Envoyer un Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="emailForm">
+                        <div class="mb-3">
+                            <label for="recipientEmail" class="form-label">Destinataire</label>
+                            <input type="email" class="form-control" id="recipientEmail" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailSubject" class="form-label">Objet</label>
+                            <select class="form-select" id="emailSubject">
+                                <option value="satisfaction">Satisfaction</option>
+                                <option value="dissatisfaction">Insatisfaction</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pré-remplir l'email du destinataire dans le formulaire
+        function prepareEmail(email) {
+            document.getElementById('recipientEmail').value = email;
+        }
+
+        // Fonction pour filtrer le tableau
+        function filterTable() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('#responsableTable tr');
+            rows.forEach(row => {
+                const group = row.cells[1].textContent.toLowerCase();
+                const rendement = row.cells[2].textContent.toLowerCase();
+                if (group.includes(input) || rendement.includes(input)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

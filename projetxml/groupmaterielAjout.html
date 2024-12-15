@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Matériels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Style général */
+        body {
+            background: linear-gradient(135deg, #ffffff, #e8f0ff);
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-weight: 600;
+            color: #3B5998;
+        }
+
+        .card {
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+            background: #fff;
+        }
+
+        label {
+            font-weight: 500;
+            color: #444;
+        }
+
+        .btn {
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #3B5998;
+            border: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #03183a;
+        }
+
+        .btn-success {
+            background-color: #2f14d9;
+            border: none;
+            color: rgb(243, 241, 247);
+        }
+
+        .btn-success:hover {
+            background-color: #090c63;
+        }
+
+        .btn-danger {
+            background-color: #36486b;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        table thead {
+            background-color: #3B5998;
+            color: white;
+            font-weight: 500;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:hover {
+            background-color: #e6f2ff;
+        }
+
+        table td, table th {
+            text-align: center;
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        input {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Matériels</h1>
+
+        <!-- Formulaire pour ajouter un type et ses matériels -->
+        <div class="card">
+            <h4 class="text-center mb-4">Ajouter un Type et des Matériels</h4>
+            <div class="mb-3">
+                <label for="typeNom" class="form-label">Type de Matériel</label>
+                <input type="text" id="typeNom" class="form-control" placeholder="Exemple : Informatique">
+            </div>
+
+            <div id="materielsContainer">
+                <h5>Matériels</h5>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control materielInput" placeholder="Nom du matériel (Ex : PC)">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control quantiteInput" placeholder="Quantité" min="1" value="1">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary w-100" onclick="addMaterielField()">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-end">
+                <button class="btn btn-success" onclick="enregistrerType()">Enregistrer</button>
+            </div>
+        </div>
+
+        <!-- Tableau pour afficher les matériels -->
+        <div class="card mt-4">
+            <h4 class="text-center mb-4">Liste des Matériels</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Matériel</th>
+                        <th>Quantité</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="typesTable">
+                    <!-- Contenu généré dynamiquement -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let materiels = [];
+
+        function addMaterielField() {
+            const container = document.getElementById('materielsContainer');
+            const row = document.createElement('div');
+            row.className = 'row g-3 mb-3';
+            row.innerHTML = `
+                <div class="col-md-6">
+                    <input type="text" class="form-control materielInput" placeholder="Nom du matériel (Ex : PC)">
+                </div>
+                <div class="col-md-4">
+                    <input type="number" class="form-control quantiteInput" placeholder="Quantité" min="1" value="1">
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-danger w-100" onclick="removeMaterielField(this)">-</button>
+                </div>
+            `;
+            container.appendChild(row);
+        }
+
+        function removeMaterielField(button) {
+            const row = button.closest('.row');
+            row.remove();
+        }
+
+        function enregistrerType() {
+            const typeInput = document.getElementById('typeNom').value.trim();
+            if (!typeInput) {
+                alert("Veuillez entrer un type !");
+                return;
+            }
+
+            const materielsInputs = document.querySelectorAll('.materielInput');
+            const quantitesInputs = document.querySelectorAll('.quantiteInput');
+
+            materiels = [];
+
+            materielsInputs.forEach((input, index) => {
+                const nom = input.value.trim();
+                const quantite = parseInt(quantitesInputs[index].value, 10);
+
+                if (nom && quantite > 0) {
+                    materiels.push({ nom, quantite });
+                }
+            });
+
+            if (materiels.length === 0) {
+                alert("Veuillez ajouter au moins un matériel valide !");
+                return;
+            }
+
+            updateTable();
+        }
+
+        function updateTable() {
+            const tableBody = document.getElementById('typesTable');
+            tableBody.innerHTML = '';
+
+            materiels.forEach(({ nom, quantite }) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${nom}</td>
+                    <td>${quantite}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="removeMateriel('${nom}')">Supprimer</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function removeMateriel(nom) {
+            materiels = materiels.filter(m => m.nom !== nom);
+            updateTable();
+        }
+
+        addMaterielField();
+    </script>
+</body>
+</html>

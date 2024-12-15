@@ -1,0 +1,76 @@
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        /* Card and icon styling */
+        .card .icon-btn {
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #343a40; /* Changer la couleur de l'icône en noir */
+        }
+
+        .card .icon-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card .btn-warning,
+        .card .btn-danger,
+        .card .btn-info {
+            border: none;
+            background: transparent;
+        }
+
+        /* Styling for cards */
+        .card .card-body {
+            position: relative;
+        }
+
+        .card .d-flex {
+            justify-content: space-around;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .card-text {
+            color: #6c757d;
+        }
+
+        /* Ajouter une bordure simple aux cartes "Événements" et "Prochain Événement" */
+        .info-card {
+            border: 1px solid #343a40; /* Bordure simple en gris foncé */
+            border-radius: 12px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .d-flex {
+                justify-content: center;
+            }
+
+            .card .card-body {
+                text-align: center;
+            }
+        }
+
+        /* Ajout d'un cadre dynamique pour les sections Événements et Prochain Événement */
+        .highlight {
+            border: 2px solid #007bff; /* Changer la bordure à une couleur bleue */
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .highlight:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+        }
+    

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<evenements>
+    <evenement>
+        <idEvenement>1</idEvenement>
+        <titre>Cycle de séminaires : Penser la question palestinienne depuis le Maghreb</titre>
+        <description>Ce cycle de séminaires se concentre sur la question palestinienne, abordant des perspectives maghrébines.</description>
+        <dateDebut>2024-12-05T09:00:00</dateDebut>
+        <dateFin>2024-12-05T17:00:00</dateFin>
+        <lieu>IRMC, Tunis</lieu>
+        <nombreParticipantsMax>100</nombreParticipantsMax>
+        <nomCategorie>Cultural</nomCategorie>
+        <cotisation>20.0</cotisation>
+        <prixMaximalGroupePersonnel>150.0</prixMaximalGroupePersonnel>
+        <prixMaximalGroupeRessourcesMaterielles>100.0</prixMaximalGroupeRessourcesMaterielles>
+        <prixMaximalLocal>200.0</prixMaximalLocal>
+        <status>Upcoming</status>
+        <typeinscription>Online</typeinscription>
+    </evenement>
+
+    <evenement>
+        <idEvenement>2</idEvenement>
+        <titre>Conférence sur l'intelligence artificielle</titre>
+        <description>Cette conférence se penchera sur les dernières avancées en intelligence artificielle et leur impact sur divers secteurs.</description>
+        <dateDebut>2025-02-16T09:00:00</dateDebut>
+        <dateFin>2025-02-16T17:00:00</dateFin>
+        <lieu>Hammamet, Tunisie</lieu>
+        <nombreParticipantsMax>200</nombreParticipantsMax>
+        <nomCategorie>Technology</nomCategorie>
+        <cotisation>30.0</cotisation>
+        <prixMaximalGroupePersonnel>250.0</prixMaximalGroupePersonnel>
+        <prixMaximalGroupeRessourcesMaterielles>150.0</prixMaximalGroupeRessourcesMaterielles>
+        <prixMaximalLocal>300.0</prixMaximalLocal>
+        <status>Upcoming</status>
+        <typeinscription>In-Person</typeinscription>
+    </evenement>
+
+    <evenement>
+        <idEvenement>3</idEvenement>
+        <titre>Tunisia Digital Summit (TDS) 2025</titre>
+        <description>Cet événement mettra l'accent sur la transformation numérique des entreprises et des administrations.</description>
+        <dateDebut>2025-05-10T09:00:00</dateDebut>
+        <dateFin>2025-05-10T17:00:00</dateFin>
+        <lieu>Tunis, Tunisie</lieu>
+        <nombreParticipantsMax>500</nombreParticipantsMax>
+        <nomCategorie>Digital Transformation</nomCategorie>
+        <cotisation>50.0</cotisation>
+        <prixMaximalGroupePersonnel>400.0</prixMaximalGroupePersonnel>
+        <prixMaximalGroupeRessourcesMaterielles>300.0</prixMaximalGroupeRessourcesMaterielles>
+        <prixMaximalLocal>600.0</prixMaximalLocal>
+        <status>Upcoming</status>
+        <typeinscription>Online and In-Person</typeinscription>
+    </evenement>
+
+    <evenement>
+        <idEvenement>4</idEvenement>
+        <titre>Séminaire SUDSMIGRANTS</titre>
+        <description>Cet événement traitera des migrations dans le Sud et des enjeux associés.</description>
+        <dateDebut>2024-12-13T09:00:00</dateDebut>
+        <dateFin>2024-12-13T17:00:00</dateFin>
+        <lieu>En ligne</lieu>
+        <nombreParticipantsMax>150</nombreParticipantsMax>
+        <nomCategorie>Migrations et Droits Humains</nomCategorie>
+        <cotisation>15.0</cotisation>
+        <prixMaximalGroupePersonnel>100.0</prixMaximalGroupePersonnel>
+        <prixMaximalGroupeRessourcesMaterielles>80.0</prixMaximalGroupeRessourcesMaterielles>
+        <prixMaximalLocal>N/A</prixMaximalLocal>
+        <status>Upcoming</status>
+        <typeinscription>Online Only</typeinscription>
+    </evenement>
+
+    <evenement>
+        <idEvenement>5</idEvenement>
+        <titre>Journées Scientifiques et Techniques en Mécanique et Matériaux (JSTMM)</titre>
+        <description>Cet événement rassemblera des chercheurs autour des avancées en mécanique et matériaux.</description>
+        <dateDebut>2024-12-20T09:00:00</dateDebut>
+        <dateFin>2024-12-22T17:00:00</dateFin>
+        <lieu>Hammamet, Tunisie</lieu>
+        <nombreParticipantsMax>300</nombreParticipantsMax>
+        <nomCategorie>Sci-Tech Conference</nomCategorie>
+        <cotisation>25.0</cotisation>
+        <prixMaximalGroupePersonnel>200.0</prixMaximalGroupePersonnel>
+        <prixMaximalGroupeRessourcesMaterielles>150.0</prixMaximalGroupeRessourcesMaterielles>
+        <prixMaximalLocal>N/A</prixMaximalLocal>
+        <status>Upcoming</status>
+        <typeinscription>Mixed (In-Person and Online)</typeinscription>
+    </evenement>
+
+    <!-- Ajoutez d'autres événements ici si nécessaire -->
+    
+</evenements>
